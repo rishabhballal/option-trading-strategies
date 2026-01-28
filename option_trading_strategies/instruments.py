@@ -38,7 +38,7 @@ class Put:
             (math.log(self.stock.S_0 / self.strike) + \
                 (self.stock.rate - 0.5 * self.stock.vol**2) * self.expiry)
         d_plus = d_minus + self.stock.vol * math.sqrt(self.expiry)
-        return -self.stock.S_0 * norm.cdf(-d_plus) - self.strike * \
+        return -self.stock.S_0 * norm.cdf(-d_plus) + self.strike * \
             math.exp(-self.stock.rate * self.expiry) * norm.cdf(-d_minus)
 
     def payoff(self, S_T):
