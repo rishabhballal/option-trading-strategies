@@ -18,3 +18,15 @@ long_guts = Portfolio(
     long=[call(strike=80), put(strike=120)],
     short=[]
 )
+
+long_call_synthetic_straddle = Portfolio(
+    strategy='Long call synthetic straddle',
+    long=[call(strike=100), call(strike=100)],
+    short=[stock]
+)
+
+long_put_synthetic_straddle = Portfolio(
+    strategy='Long put synthetic straddle',
+    long=[stock, put(strike=100), put(strike=100)],
+    short=[]
+)
