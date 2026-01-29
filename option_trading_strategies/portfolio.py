@@ -28,6 +28,11 @@ class Portfolio:
         plt.ylabel('Payoff')
         plt.title(self.strategy)
         plt.subplots_adjust(bottom=0.2)
-        plt.figtext(0.5, 0.05, f'Portfolio: {pf}', ha='center')
+        plt.figtext(
+            0.125, 0.05,
+            f'Initial stock price = {S_0}\n' +
+            f'Long: [{', '.join(pf['Long'])}], ' +
+            f'Short: [{', '.join(pf['Short'])}]',
+            ha='left')
         plt.grid()
         plt.show()
