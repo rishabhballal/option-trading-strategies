@@ -1,11 +1,32 @@
-from .. import instruments
-from .. import portfolio
+from .. import stock, call, put
+from ..portfolio import Portfolio
 
-stock = instruments.Stock()
-put_80 = instruments.Put(stock=stock, strike=80)
-
-covered_put = portfolio.Portfolio(
+covered_put = Portfolio(
     strategy='Covered Put',
     long=[],
-    short=[stock, put_80]
+    short=[stock, put(strike=80)]
+)
+
+protective_call = Portfolio(
+    strategy='Protective call',
+    long=[call(strike=120)],
+    short=[stock]
+)
+
+bear_call_spread = Portfolio(
+    strategy='Bear call spread',
+    long=[call(strike=120)],
+    short=[call(strike=100)]
+)
+
+bear_put_spread = Portfolio(
+    strategy='Bear put spread',
+    long=[put(strike=100)],
+    short=[put(strike=80)]
+)
+
+short_synthetic_forward = Portfolio(
+    strategy='Short synthetic forward',
+    long=[put(strike=100)],
+    short=[call(strike=100)]
 )
