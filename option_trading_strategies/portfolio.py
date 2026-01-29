@@ -10,7 +10,6 @@ class Portfolio:
             sum([x.payoff(S_T) for x in self.position['Short']])
 
     def info(self):
-        print(f'Strategy:\t{self.strategy}')
         pf = {'Long': [], 'Short': []}
         for k in self.position.keys():
             for x in self.position[k]:
@@ -20,14 +19,15 @@ class Portfolio:
                 else:
                     pf[k].append(f'{x.__class__.__name__} struck at {x.strike}')
                     S_0 = x.stock.S_0
-        print(f'Portfolio:\t{pf}')
-
         S_T = range(max(S_0 - 100, 0), S_0 + 101)
         P_T = [self._payoff(x) for x in S_T]
+        plt.figure(figsize=(8, 6))
         plt.plot(S_T, P_T)
         plt.plot(S_T, [0] * len(S_T), color='black')
         plt.xlabel('Final stock price')
         plt.ylabel('Payoff')
         plt.title(self.strategy)
+        plt.subplots_adjust(bottom=0.2)
+        plt.figtext(0.5, 0.05, f'Portfolio: {pf}', ha='center')
         plt.grid()
         plt.show()
