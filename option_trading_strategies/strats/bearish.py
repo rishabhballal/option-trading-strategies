@@ -30,3 +30,21 @@ short_synthetic_forward = Portfolio(
     long=[put(strike=100)],
     short=[call(strike=100)]
 )
+
+short_combo = Portfolio(
+    strategy='Short combo',
+    long=[put(strike=80)],
+    short=[call(strike=120)]
+)
+
+bull_put_ladder = Portfolio(
+    strategy='Bull put ladder',
+    long=[put(strike=80), put(strike=60)],
+    short=[put(strike=100)]
+)
+
+bear_put_ladder = Portfolio(
+    strategy='Bear put ladder',
+    long=[put(strike=100)],
+    short=[put(strike=80), put(strike=60)]
+)
