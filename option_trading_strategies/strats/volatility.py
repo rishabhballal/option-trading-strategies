@@ -30,3 +30,15 @@ long_put_synthetic_straddle = Portfolio(
     long=[stock, put(strike=100), put(strike=100)],
     short=[]
 )
+
+strap = Portfolio(
+    strategy='Strap',
+    long=[call(strike=100), call(strike=100), put(strike=100)],
+    short=[]
+)
+
+strip = Portfolio(
+    strategy='Strip',
+    long=[call(strike=100), put(strike=100), put(strike=100)],
+    short=[]
+)
