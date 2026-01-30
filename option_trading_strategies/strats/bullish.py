@@ -60,3 +60,15 @@ covered_short_strangle = Portfolio(
     long=[stock],
     short=[call(strike=120), put(strike=80)]
 )
+
+call_ratio_backspread = Portfolio(
+    strategy='Call ratio backspread',
+    long=[call(strike=110), call(strike=110)],
+    short=[call(strike=90)]
+)
+
+call_ratio_spread = Portfolio(
+    strategy='Call ratio spread',
+    long=[call(strike=90)],
+    short=[call(strike=110), call(strike=110)]
+)
