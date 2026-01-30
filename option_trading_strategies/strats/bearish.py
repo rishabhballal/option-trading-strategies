@@ -48,3 +48,15 @@ bear_put_ladder = Portfolio(
     long=[put(strike=100)],
     short=[put(strike=80), put(strike=60)]
 )
+
+put_ratio_backspread = Portfolio(
+    strategy='Put ratio backspread',
+    long=[put(strike=90), put(strike=90)],
+    short=[put(strike=110)]
+)
+
+put_ratio_spread = Portfolio(
+    strategy='Put ratio spread',
+    long=[put(strike=110)],
+    short=[put(strike=90), put(strike=90)]
+)
