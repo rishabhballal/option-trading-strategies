@@ -48,3 +48,15 @@ bear_call_ladder = Portfolio(
     long=[call(strike=120), call(strike=140)],
     short=[call(strike=100)]
 )
+
+covered_short_straddle = Portfolio(
+    strategy='Covered short straddle',
+    long=[stock],
+    short=[call(strike=120), put(strike=120)]
+)
+
+covered_short_strangle = Portfolio(
+    strategy='Covered short strangle',
+    long=[stock],
+    short=[call(strike=120), put(strike=80)]
+)
