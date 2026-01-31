@@ -60,3 +60,21 @@ put_ratio_spread = Portfolio(
     long=[put(strike=110)],
     short=[put(strike=90), put(strike=90)]
 )
+
+short_collar = Portfolio(
+    strategy='Short collar',
+    long=[call(strike=120)],
+    short=[stock, put(strike=80)]
+)
+
+long_bearish_seagull_spread = Portfolio(
+    strategy='Long bearish seagull spread',
+    long=[put(strike=80), call(strike=120)],
+    short=[call(strike=100)]
+)
+
+short_bearish_seagull_spread = Portfolio(
+    strategy='Short bearish seagull spread',
+    long=[put(strike=100)],
+    short=[put(strike=80), call(strike=130)]
+)
