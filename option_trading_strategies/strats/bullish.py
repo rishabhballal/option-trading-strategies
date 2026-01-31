@@ -1,6 +1,18 @@
 from .. import stock, call, put
 from ..portfolio import Portfolio
 
+long_call = Portfolio(
+    strategy='Long call',
+    long=[call(strike=120)],
+    short=[]
+)
+
+short_put = Portfolio(
+    strategy='Short put',
+    long=[],
+    short=[put(strike=80)]
+)
+
 covered_call = Portfolio(
     strategy='Covered call',
     long=[stock],
