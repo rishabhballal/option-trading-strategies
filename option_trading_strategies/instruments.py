@@ -2,7 +2,7 @@ import math
 from scipy.stats import norm
 
 class Stock:
-    def __init__(self, S_0=100, rate=0.05, vol=0.40):
+    def __init__(self, S_0, rate, vol):
         self.S_0 = S_0
         self.rate = rate
         self.vol = vol
@@ -11,7 +11,7 @@ class Stock:
         return S_T - self.S_0
 
 class Call:
-    def __init__(self, stock, strike, expiry=1):
+    def __init__(self, stock, strike, expiry):
         self.stock = stock
         self.strike = strike
         self.expiry = expiry
@@ -28,7 +28,7 @@ class Call:
         return max(S_T - self.strike, 0) - self.price()
 
 class Put:
-    def __init__(self, stock, strike, expiry=1):
+    def __init__(self, stock, strike, expiry):
         self.stock = stock
         self.strike = strike
         self.expiry = expiry
