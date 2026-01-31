@@ -48,3 +48,21 @@ short_iron_butterfly = Portfolio(
     long=[put(strike=80), call(strike=120)],
     short=[put(strike=100), call(strike=100)]
 )
+
+long_call_condor = Portfolio(
+    strategy='Long call condor',
+    long=[call(strike=70), call(strike=130)],
+    short=[call(strike=90), call(strike=110)]
+)
+
+long_put_condor = Portfolio(
+    strategy='Long put condor',
+    long=[put(strike=70), put(strike=130)],
+    short=[put(strike=90), put(strike=110)]
+)
+
+short_iron_condor = Portfolio(
+    strategy='Short iron condor',
+    long=[put(strike=70), call(strike=130)],
+    short=[put(strike=90), call(strike=110)]
+)
