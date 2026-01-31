@@ -30,3 +30,21 @@ short_put_synthetic_straddle = Portfolio(
     long=[],
     short=[stock, put(strike=100), put(strike=100)]
 )
+
+long_call_butterfly = Portfolio(
+    strategy='Long call butterfly',
+    long=[call(strike=120), call(strike=80)],
+    short=[call(strike=100), call(strike=100)]
+)
+
+long_put_butterfly = Portfolio(
+    strategy='Long put butterfly',
+    long=[put(strike=80), put(strike=120)],
+    short=[put(strike=100), put(strike=100)]
+)
+
+short_iron_butterfly = Portfolio(
+    strategy='Short iron butterfly',
+    long=[put(strike=80), call(strike=120)],
+    short=[put(strike=100), call(strike=100)]
+)
