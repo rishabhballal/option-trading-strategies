@@ -72,3 +72,21 @@ call_ratio_spread = Portfolio(
     long=[call(strike=90)],
     short=[call(strike=110), call(strike=110)]
 )
+
+long_collar = Portfolio(
+    strategy='Long collar',
+    long=[stock, put(strike=80)],
+    short=[call(strike=120)]
+)
+
+long_bullish_seagull_spread = Portfolio(
+    strategy='Long bullish seagull spread',
+    long=[call(strike=130), put(strike=80)],
+    short=[put(strike=100)]
+)
+
+short_bullish_seagull_spread = Portfolio(
+    strategy='Short bullish seagull spread',
+    long=[call(strike=100)],
+    short=[call(strike=120), put(strike=80)]
+)
