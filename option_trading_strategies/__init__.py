@@ -8,4 +8,7 @@ def call(strike=120, expiry=1):
 def put(strike=80, expiry=1):
     return instruments.Put(stock=stock, strike=strike, expiry=expiry)
 
-from .strats import bullish, bearish, volatility, sideways
+from .strats.bullish import *
+from .strats.bearish import *
+from .strats.volatility import *
+from .strats.sideways import *
