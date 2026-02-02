@@ -1,5 +1,5 @@
 from .. import stock, call, put
-from ..portfolio import Portfolio
+from ..instruments import Portfolio
 
 long_straddle = Portfolio(
     strategy='Long straddle',
