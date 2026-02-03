@@ -53,7 +53,16 @@ class Put:
 class Portfolio:
     def __init__(self, strategy, long, short):
         self.strategy = strategy
+        self._validate(long + short)
         self.position = {'Long': long, 'Short': short}
+
+    def _validate(self, instruments):
+        options = list(filter(lambda x: x.__class__.__name__ != 'Stock',
+            instruments))
+        if not options:
+            raise ValueError('Portfolio must contain at least one option.')
+        if len(set([x.expiry for x in options])) > 1:
+            raise ValueError('Options must have the same time to expiry.')
 
     def payoff(self, S_T):
         return sum([x.payoff(S_T) for x in self.position['Long']]) - \
