@@ -11,11 +11,6 @@ class Stock:
     def payoff(self, S_T):
         return S_T - self.S_0
 
-    def reset(self, S_0, rate, vol):
-        self.S_0 = S_0
-        self.rate = rate
-        self.vol = vol
-
 class Call:
     def __init__(self, stock, strike, expiry):
         self.stock = stock
