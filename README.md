@@ -29,15 +29,15 @@ import option_trading_strategies as ots
 ots.strats.long_collar.plot_payoff()
 ```
 
-This will also output the portfolio positions of the strategy. The parameters of the market instruments (namely, of the underlying stock and the vanilla options) have been assigned default values so that the focus is on the qualitative behaviour. The following code shows how one can tweak these values if desired.
+This will also output the portfolio positions of the strategy. The parameters of the market instruments (namely, of the underlying stock and the vanilla options) have been assigned default values so that the focus is on the qualitative behaviour of the payoff. The following code is a suggestion of how one can recreate a strategy (or even define one's own) with different parameter values.
 
 ```python
 # main.py
-ots.stock.reset(S_0=200, rate=0.04, vol=0.25)
+stock = ots.Stock(S_0=200, rate=0.04, vol=0.25)
 
 ots.Portfolio(
     strategy='Long collar',
-    long=[ots.stock, ots.put(strike=180, expiry=2)],
-    short=[ots.call(strike=220, expiry=2)]
+    long=[stock, ots.Put(stock=stock, strike=180, expiry=2)],
+    short=[ots.Call(stock=stock, strike=220, expiry=2)]
 ).plot_payoff()
 ```
